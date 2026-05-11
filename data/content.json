@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "title": "artfoma",
+        "tagline": "[ идея // код // релиз ]",
+        "heroDesc": "Делаем сложное простым, а скучное — прибыльным.",
+        "copyright": "artfoma © 2026",
+        "contactEmail": "studio@artfoma.ru"
+    },
+    "sections": {
+        "featuresTitle": "&lt; услуги &gt;",
+        "worksTitle": "// работы"
+    },
+    "loaderSteps": ["Правки: всё", "Загрузка: ComicSans", "Сделай «вау»", "Правка последняя. (Самая смешная ложь)"],
+    "features": [
+        {
+            "icon": "◈",
+            "title": "генеративная айдентика",
+            "description": "Алгоритмический дизайн, жёсткая типографика, спиральные паттерны.",
+            "meta": "WEBGL / AI"
+        },
+        {
+            "icon": "⎋",
+            "title": "интерактивные среды",
+            "description": "Веб-инсталляции с параллаксом и реактивным интерфейсом.",
+            "meta": "REALTIME"
+        },
+        {
+            "icon": "⌥",
+            "title": "код & дизайн фьюжн",
+            "description": "Генеративные паттерны, глитч-арт, моноширинные сетки.",
+            "meta": "MONOSPACE"
+        }
+    ],
+    "works": [
+        {
+            "title": "GLITCH_PARADIGM",
+            "year": "2025",
+            "description": "Интерактивный сайт с искажениями и вращающимися спиралями.",
+            "previewStyle": "repeating-linear-gradient(45deg, #B7F31E 0px, #B7F31E 8px, #8D50F0 8px, #8D50F0 16px)"
+        },
+        {
+            "title": "BRUTALIST_GRID",
+            "year": "2024",
+            "description": "Система дизайн-токенов для необруталистических интерфейсов.",
+            "previewStyle": "repeating-linear-gradient(135deg, #DD76FF 0px, #DD76FF 8px, #8D50F0 8px, #8D50F0 16px)"
+        },
+        {
+            "title": "SPIRAL_VOID",
+            "year": "2025",
+            "description": "Анимированная спираль + скролл-параллакс.",
+            "previewStyle": "radial-gradient(circle at 30% 40%, #B7F31E, #8D50F0)"
+        }
+    ],
+    "additionalProjects": [
+        {
+            "title": "_SPIRAL_CORE",
+            "year": "2026",
+            "description": "Спиральная динамика + горизонтальный скролл.",
+            "previewStyle": "repeating-linear-gradient(0deg, #B7F31E 0px, #B7F31E 8px, #DD76FF 8px, #DD76FF 16px)"
+        },
+        {
+            "title": "NEON_BRUT",
+            "year": "2026",
+            "description": "Неоновая эстетика в бруталистическом оформлении.",
+            "previewStyle": "repeating-linear-gradient(90deg, #8D50F0 0px, #8D50F0 8px, #DD76FF 8px, #DD76FF 16px)"
+        }
+    ],
+    "maxProjects": 5,
+    "socials": [
+        { "name": "telegram", "url": "#" }
+    ]
+}

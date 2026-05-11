@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>artfoma </title>
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="spiral-container">
+    <img src="img/spiral.svg" alt="spiral" class="spiral-img" id="spiralImg">
+</div>
+
+<div class="dot-pattern"></div>
+<div class="geo-primitive cross-brut"></div>
+<div class="geo-primitive circle-blunt"></div>
+
+<div class="ripple-loader" id="loaderScene">
+    <div class="ripple-box">
+        <div class="ripple-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader-logo">&gt; artfoma</div>
+        <div class="loader-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="loader-text" id="loaderText">инициализация</div>
+    </div>
+</div>
+
+<main class="main-content" id="mainContent">
+    <section class="hero-section">
+        <div class="hero-card">
+            <div class="animated-title">
+                <span class="title-art">artfoma</span>
+            </div>
+            <div class="mono-tagline" id="tagline">[ идея // код // релиз ]</div>
+            <p class="hero-desc" id="heroDesc">Делаем сложное простым, а скучное — прибыльным.</p>
+            <div class="btn-group">
+                <div class="brutal-btn" id="exploreBtn">> А СКОЛЬКО СТОИТ? <</div>
+                <div class="brutal-btn secondary" id="projectsBtn">⌘ ПРОЕКТЫ</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title" id="featuresTitle">&lt; услуги &gt;</h2>
+        <div class="features-grid" id="featuresGrid"></div>
+    </section>
+
+    <section class="work-section">
+        <h2 class="section-title" id="worksTitle">// работы</h2>
+        <div class="work-grid" id="workGrid"></div>
+        <div class="center-btn">
+            <div class="brutal-btn" id="moreBtn">[ показать_ещё ]</div>
+        </div>
+    </section>
+
+    <footer class="brutal-footer">
+        <div class="footer-content">
+            <span class="footer-mono" id="copyright">artfoma © 2026</span>
+            <span class="footer-mono" id="contactEmail">studio@artfoma.ru</span>
+            <div class="social-icons" id="socialIcons"></div>
+        </div>
+    </footer>
+</main>
+
+<div class="custom-cursor" id="customCursor"></div>
+
+<script src="data/content.json" type="application/json" id="contentData"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
