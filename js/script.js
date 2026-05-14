@@ -1,19 +1,14 @@
-// artfoma — основной скрипт (полностью на данных из content.json)
-
 (function() {
-    // ==================== Глобальные переменные ====================
     let siteContent = null;
     let maxProjectsReached = false;
     let animationTriggered = false;
     
-    // ==================== Загрузка контента из JSON ====================
     async function loadContent() {
         try {
             const response = await fetch('data/content.json');
             if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             siteContent = await response.json();
             
-            // Проверяем, что данные имеют минимально необходимую структуру
             if (!siteContent.meta || !siteContent.features || !siteContent.works) {
                 throw new Error('Неполные данные в content.json: отсутствуют meta, features или works');
             }
@@ -22,7 +17,6 @@
             return true;
         } catch (error) {
             console.error('❌ Ошибка загрузки content.json:', error);
-            // Показываем сообщение об ошибке прямо на странице
             showErrorScreen(error.message);
             return false;
         }
@@ -44,7 +38,6 @@
         `;
     }
     
-    // ==================== Рендер контента ====================
     function renderContent() {
         if (!siteContent) return;
         
@@ -265,7 +258,7 @@
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             if (maxScroll > 0) {
                 const scrollPercent = Math.min(1, Math.max(0, scrollY / maxScroll));
-                targetTranslate = -(scrollPercent * 45);
+                targetTranslate = -(scrollPercent * 10);
             }
         }
         
