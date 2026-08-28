@@ -1,72 +1,218 @@
 {
     "meta": {
         "title": "artfoma",
-        "tagline": "[ идея // код // релиз ]",
-        "heroDesc": "Делаем сложное простым, а скучное — прибыльным.",
+        "tagline": "[ идея // ux/ui // код ]",
+        "heroDesc": "Цифровая лаборатория Влада Фоменко. Проектируем B2B-системы, промо-сайты и экспресс-визуал, который увеличивает конверсию.",
         "copyright": "artfoma © 2026",
         "contactEmail": "studio@artfoma.ru"
     },
     "sections": {
-        "featuresTitle": "&lt; услуги &gt;",
-        "worksTitle": "// работы"
+        "featuresTitle": "< услуги >",
+        "worksTitle": "// проекты",
+        "cliTitle": "> _ контакт"
     },
-    "loaderSteps": ["Правки: всё", "Загрузка: ComicSans", "Сделай «вау»", "Правка последняя. (Самая смешная ложь)"],
+    "loaderSteps": [
+        "Инициализация Figma-токенов...",
+        "Оптимизация UX-архитектуры...",
+        "Генерация необрутализма...",
+        "Правка последняя. (Самая смешная ложь)"
+    ],
     "features": [
         {
             "icon": "◈",
-            "title": "генеративная айдентика",
-            "description": "Алгоритмический дизайн, жёсткая типографика, спиральные паттерны.",
-            "meta": "WEBGL / AI"
+            "title": "Product UI/UX & CRM",
+            "description": "Проектирование сложных веб-сервисов, личных кабинетов, CRM и AI-платформ. Проработка CJM, информационной архитектуры и дизайн-систем.",
+            "result": "Понятная логика для пользователей + сокращение оттока (Churn Rate).",
+            "meta": "FIGMA / SAAS / B2B"
         },
         {
             "icon": "⎋",
-            "title": "интерактивные среды",
-            "description": "Веб-инсталляции с параллаксом и реактивным интерфейсом.",
-            "meta": "REALTIME"
+            "title": "Креативный Web & WebGL",
+            "description": "Промо-сайты, лендинги и брендовые порталы с нестандартным арт-дирекшном, анимациями и глитч-эстетикой.",
+            "result": "Увеличение среднего времени на сайте и вау-эффект для инвесторов.",
+            "meta": "DEVELOPMENT / THREE.JS"
         },
         {
             "icon": "⌥",
-            "title": "код & дизайн фьюжн",
-            "description": "Генеративные паттерны, глитч-арт, моноширинные сетки.",
-            "meta": "MONOSPACE"
+            "title": "Express Design & Graphics",
+            "description": "Быстрая и аккуратная графика: маркетплейс-инфографика (пакеты карточек), оформление досок Miro, презентации и социальные сети.",
+            "result": "Быстрый запуск продаж и порядок в подаче информации за 24-48 часов.",
+            "meta": "QUICK CASH / E-COM"
         }
     ],
     "works": [
         {
-            "title": "GLITCH_PARADIGM",
+            "title": "SKILLSCOUT_AI",
             "year": "2025",
-            "description": "Интерактивный сайт с искажениями и вращающимися спиралями.",
+            "description": "AI-платформа подбора персонала с анализом видео и поведенческих факторов. Полный UI/UX цикл.",
             "previewStyle": "repeating-linear-gradient(45deg, #B7F31E 0px, #B7F31E 8px, #8D50F0 8px, #8D50F0 16px)"
         },
         {
-            "title": "BRUTALIST_GRID",
-            "year": "2024",
-            "description": "Система дизайн-токенов для необруталистических интерфейсов.",
+            "title": "EDTECH_CRM_SYSTEM",
+            "year": "2026",
+            "description": "Интерфейс CRM-системы для образовательного бизнеса с модулями финансовых операций и расписания.",
             "previewStyle": "repeating-linear-gradient(135deg, #DD76FF 0px, #DD76FF 8px, #8D50F0 8px, #8D50F0 16px)"
         },
         {
-            "title": "SPIRAL_VOID",
-            "year": "2025",
-            "description": "Анимированная спираль + скролл-параллакс.",
+            "title": "KLADIEZ_BUILD_PORTAL",
+            "year": "2024",
+            "description": "Межрегиональный строительный портал: проектирование интерфейса заказчиков и исполнителей.",
             "previewStyle": "radial-gradient(circle at 30% 40%, #B7F31E, #8D50F0)"
+        },
+        {
+            "title": "COSMOS_RUS_IDENTITY",
+            "year": "2024",
+            "description": "Айдентика и брендбук с метафорой сверхзвуковой авиации и космических технологий.",
+            "previewStyle": "repeating-linear-gradient(0deg, #B7F31E 0px, #B7F31E 8px, #DD76FF 8px, #DD76FF 16px)"
+        },
+        {
+            "title": "EXPRESS_INFOGRAPHICS_PACK",
+            "year": "2025",
+            "description": "Серия продуктовой инфографики для онлайн-обучения и досок Miro с фокусом на метрики.",
+            "previewStyle": "repeating-linear-gradient(90deg, #8D50F0 0px, #8D50F0 8px, #DD76FF 8px, #DD76FF 16px)"
         }
     ],
     "additionalProjects": [
         {
-            "title": "_SPIRAL_CORE",
-            "year": "2026",
-            "description": "Спиральная динамика + горизонтальный скролл.",
-            "previewStyle": "repeating-linear-gradient(0deg, #B7F31E 0px, #B7F31E 8px, #DD76FF 8px, #DD76FF 16px)"
+            "title": "CMSE_SPORT_PLATFORM",
+            "year": "2024",
+            "description": "Платформа для болельщиков с календарем событий и интерактивной сеткой матчей.",
+            "previewStyle": "repeating-linear-gradient(45deg, #8D50F0 0px, #8D50F0 8px, #B7F31E 8px, #B7F31E 16px)"
         },
         {
-            "title": "NEON_BRUT",
+            "title": "ARTFOMA_SHOWCASE",
             "year": "2026",
-            "description": "Неоновая эстетика в бруталистическом оформлении.",
-            "previewStyle": "repeating-linear-gradient(90deg, #8D50F0 0px, #8D50F0 8px, #DD76FF 8px, #DD76FF 16px)"
+            "description": "Интерактивный бруталистический сайт-лаборатория на WebGL.",
+            "previewStyle": "radial-gradient(circle at 70% 30%, #DD76FF, #B7F31E)"
         }
     ],
     "maxProjects": 5,
+    "calculator": {
+        "title": "// КАЛЬКУЛЯТОР СТОИМОСТИ",
+        "packages": [
+            {
+                "id": "express",
+                "name": "Express Design (Инфографика / Miro / Презентации)",
+                "unitName": "слайдов / карточек",
+                "unitPrice": 1500,
+                "minUnits": 10,
+                "daysPerUnit": 0.2,
+                "flashNotice": "⚡ В ПАКЕТ ВХОДИТ: Обработка исходников, векторные иконки, сетка Miro, исходники в Figma, 1 круг правок.",
+                "note": "Минимальный заказ: 10 единиц (15 000 ₽)"
+            },
+            {
+                "id": "landing",
+                "name": "Промо-сайт / Лендинг (Figma UI/UX)",
+                "unitName": "экранов / блоков",
+                "unitPrice": 6000,
+                "minUnits": 5,
+                "daysPerUnit": 1.5,
+                "flashNotice": "⚡ В ПАКЕТ ВХОДИТ: UX-исследование, уникальный арт-дирекшн, адаптивные макеты (Mobile/Desktop), Figma UI-kit.",
+                "note": "Минимальный заказ: 5 блоков (30 000 ₽)"
+            },
+            {
+                "id": "saas",
+                "name": "Сложный UI/UX (CRM / SaaS / Приложение)",
+                "unitName": "уникальных страниц/экранов",
+                "unitPrice": 12000,
+                "minUnits": 6,
+                "daysPerUnit": 2.5,
+                "flashNotice": "⚡ В ПАКЕТ ВХОДИТ: CJM, информационная архитектура, сложная интерактивная дизайн-система, прототипирование сценариев.",
+                "note": "Минимальный заказ: 6 экранов (72 000 ₽)"
+            },
+            {
+                "id": "custom",
+                "name": "Спец-проект / Индивидуально в ЛС",
+                "unitName": "комплекс",
+                "unitPrice": 0,
+                "minUnits": 1,
+                "isCustom": true,
+                "daysPerUnit": 0,
+                "flashNotice": "⚡ СПЕЦ-ПРОЕКТ: Формат под ключ, интеграция WebGL, 3D и нестандартный код. Обсуждаем индивидуально.",
+                "note": "Расчёт индивидуален"
+            }
+        ],
+        "addons": [
+            {
+                "id": "code",
+                "name": "Верстка & WebGL Разработка",
+                "price": 40000,
+                "description": "Чистый код, адаптив, интерактивные анимации"
+            },
+            {
+                "id": "branding",
+                "name": "Айдентика & Брендбук",
+                "price": 25000,
+                "description": "Логотип, гайдлайны, фирменный стиль"
+            }
+        ]
+    },
+    "glitchControls": {
+        "enabled": true,
+        "controls": [
+            {
+                "id": "spiralGlitch",
+                "label": "Спираль",
+                "icon": "🌀",
+                "type": "toggle",
+                "default": true,
+                "description": "Вращение и искажение спирали"
+            },
+            {
+                "id": "imageGlitch",
+                "label": "Глитч-изображения",
+                "icon": "🖼️",
+                "type": "toggle",
+                "default": true,
+                "description": "Сканирующие полосы на картинках"
+            },
+            {
+                "id": "hoverGlitch",
+                "label": "Глитч при наведении",
+                "icon": "👆",
+                "type": "toggle",
+                "default": true,
+                "description": "Эффект при наведении на элементы"
+            },
+            {
+                "id": "intensity",
+                "label": "Интенсивность",
+                "icon": "⚡",
+                "type": "range",
+                "default": 50,
+                "min": 0,
+                "max": 100,
+                "description": "Сила всех глитч-эффектов"
+            },
+            {
+                "id": "spiralSpeed",
+                "label": "Скорость спирали",
+                "icon": "🔄",
+                "type": "range",
+                "default": 50,
+                "min": 0,
+                "max": 100,
+                "description": "Скорость вращения спирали"
+            },
+            {
+                "id": "geoPrimitives",
+                "label": "Гео-примитивы",
+                "icon": "◆",
+                "type": "toggle",
+                "default": true,
+                "description": "Крест и круг на фоне"
+            },
+            {
+                "id": "dotPattern",
+                "label": "Точечный паттерн",
+                "icon": "●",
+                "type": "toggle",
+                "default": true,
+                "description": "Сетка из точек на фоне"
+            }
+        ]
+    },
     "socials": [
-        { "name": "telegram", "url": "#" }
+        { "name": "telegram", "url": "https://t.me/art_f0ma" }
     ]
 }
