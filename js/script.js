@@ -2,6 +2,7 @@
     let siteContent = null;
     let maxProjectsReached = false;
     let animationTriggered = false;
+    let currentWorksCount = 0;
 
     // ==================== ЗАГРУЗКА КОНТЕНТА ====================
     async function loadContent() {
@@ -41,7 +42,6 @@
     function renderContent() {
         if (!siteContent) return;
 
-        // Meta
         if (siteContent.meta) {
             document.title = siteContent.meta.title || 'artfoma';
             const taglineEl = document.getElementById('tagline');
@@ -54,7 +54,6 @@
             if (contactEmailEl) contactEmailEl.textContent = siteContent.meta.contactEmail || 'studio@artfoma.ru';
         }
 
-        // Заголовки секций
         if (siteContent.sections) {
             const featuresTitleEl = document.getElementById('featuresTitle');
             if (featuresTitleEl) featuresTitleEl.innerHTML = siteContent.sections.featuresTitle || '&lt; услуги &gt;';
@@ -64,7 +63,6 @@
             if (contactTitleEl) contactTitleEl.innerHTML = siteContent.sections.cliTitle || '// контакт';
         }
 
-        // Услуги
         if (siteContent.features) {
             const grid = document.getElementById('featuresGrid');
             if (!grid) return;
@@ -83,16 +81,17 @@
             });
         }
 
-        // Работы
         if (siteContent.works) {
             window.initialWorksCount = siteContent.works.length;
             window.allAdditionalProjects = siteContent.additionalProjects || [];
             window.allWorks = [...siteContent.works];
             window.maxProjects = siteContent.maxProjects || (siteContent.works.length + (siteContent.additionalProjects || []).length);
-            renderWorks(window.allWorks);
+            
+            const initialProjects = siteContent.works.slice(0, 4);
+            currentWorksCount = initialProjects.length;
+            renderWorks(initialProjects);
         }
 
-        // Соцсети
         if (siteContent.socials) {
             const container = document.getElementById('socialIcons');
             if (!container) return;
@@ -110,7 +109,6 @@
             });
         }
 
-        // Калькулятор
         if (siteContent.calculator) {
             window.calculatorData = siteContent.calculator;
             if (siteContent.calculator.packages) {
@@ -120,7 +118,6 @@
             }
         }
 
-        // Глитч-контролы
         if (siteContent.glitchControls) {
             renderGlitchControls(siteContent.glitchControls.controls);
         }
@@ -152,11 +149,16 @@
             grid.appendChild(item);
         });
 
+        updateMoreButton();
+    }
+
+    function updateMoreButton() {
         const moreBtn = document.getElementById('moreBtn');
         if (!moreBtn) return;
-        const total = (window.initialWorksCount || 0) + (window.allAdditionalProjects || []).length;
-        const current = works.length;
-        if (current >= total || current >= window.maxProjects) {
+        
+        const totalAvailable = (window.initialWorksCount || 0) + (window.allAdditionalProjects || []).length;
+        
+        if (currentWorksCount >= totalAvailable || currentWorksCount >= window.maxProjects) {
             moreBtn.style.opacity = '0.5';
             maxProjectsReached = true;
         } else {
@@ -166,12 +168,24 @@
     }
 
     function addProject(project) {
-        if (window.allWorks.length >= window.maxProjects) {
+        if (currentWorksCount >= window.maxProjects) {
             brutalNotify('МАКСИМУМ ПРОЕКТОВ');
             return false;
         }
-        window.allWorks.push(project);
-        renderWorks(window.allWorks);
+        
+        const currentItems = document.querySelectorAll('.work-item');
+        const currentProjects = [];
+        currentItems.forEach(item => {
+            const title = item.querySelector('h4')?.textContent || '';
+            const year = item.querySelector('.work-year')?.textContent || '';
+            const desc = item.querySelector('p')?.textContent || '';
+            const previewStyle = item.querySelector('.work-preview')?.style?.background || '';
+            currentProjects.push({ title, year, description: desc, previewStyle });
+        });
+        
+        currentProjects.push(project);
+        currentWorksCount = currentProjects.length;
+        renderWorks(currentProjects);
         return true;
     }
 
@@ -279,13 +293,13 @@
     let selectedPackage = null;
     let selectedUnits = 1;
     let selectedAddons = new Set();
+    let lastNotifiedPackageId = null;
 
     function renderCalculatorNew(calcData) {
         const container = document.getElementById('calcParams');
         if (!container || !calcData.packages) return;
         container.innerHTML = '';
 
-        // 1. Селектор Пакетов
         const pkgGroup = document.createElement('div');
         pkgGroup.className = 'param-group';
         pkgGroup.innerHTML = `<div class="param-label">1. ТИП ПРОЕКТА</div>`;
@@ -310,7 +324,6 @@
         pkgGroup.appendChild(pkgGrid);
         container.appendChild(pkgGroup);
 
-        // 2. Блок выбора количества
         const qtyGroup = document.createElement('div');
         qtyGroup.className = 'param-group';
         qtyGroup.id = 'calcQtyGroup';
@@ -332,7 +345,6 @@
             updateReceipt();
         });
 
-        // 3. Блок доп. опций
         if (calcData.addons && calcData.addons.length > 0) {
             const addonsGroup = document.createElement('div');
             addonsGroup.className = 'param-group';
@@ -356,7 +368,6 @@
             container.appendChild(addonsGroup);
         }
 
-        // По умолчанию выбираем первый пакет
         selectPackage(calcData.packages[0]);
     }
 
@@ -382,15 +393,7 @@
             if (qtyVal) qtyVal.textContent = pkg.minUnits || 1;
             if (qtyNote) qtyNote.textContent = pkg.note || '';
         }
-
-        // Флеш-уведомление
-        if (pkg.flashNotice) {
-            brutalNotify(pkg.flashNotice);
-        }
-
-        updateReceipt();
     }
-
     function updateReceipt() {
         if (!selectedPackage) return;
 
@@ -416,7 +419,6 @@
             return;
         }
 
-        // Расчет итогов
         let baseTotal = selectedPackage.unitPrice * selectedUnits;
         let addonsTotal = 0;
         let breakdownHTML = `<div class="breakdown-item"><span>${selectedPackage.name} (${selectedUnits} × ${selectedPackage.unitPrice.toLocaleString('ru-RU')} ₽)</span><span>${baseTotal.toLocaleString('ru-RU')} ₽</span></div>`;
@@ -638,11 +640,13 @@
         toast.className = 'brutal-toast';
         toast.textContent = `>> ${text} <<`;
         document.body.appendChild(toast);
+        
+        // Автоматическое удаление через 5 секунд
         setTimeout(() => {
             toast.style.opacity = '0';
             toast.style.transform = 'translateX(-30px)';
             setTimeout(() => toast.remove(), 300);
-        }, 2800);
+        }, 5000);
     }
 
     // ==================== НОВАЯ КОНТАКТНАЯ ФОРМА ====================
@@ -711,6 +715,7 @@
                 if (selectedPackage) {
                     selectedPackage = null;
                     selectedAddons.clear();
+                    lastNotifiedPackageId = null;
                 }
             });
         }
@@ -795,13 +800,25 @@
                     brutalNotify('МАКСИМУМ ПРОЕКТОВ');
                     return;
                 }
-                const idx = window.allWorks.length - (window.initialWorksCount || 0);
-                if (idx < (window.allAdditionalProjects || []).length) {
-                    const proj = window.allAdditionalProjects[idx];
-                    if (proj) {
-                        addProject(proj);
-                        brutalNotify(`+1 ПРОЕКТ // ${proj.title}`);
+                
+                const currentItems = document.querySelectorAll('.work-item');
+                const currentTitles = new Set();
+                currentItems.forEach(item => {
+                    const title = item.querySelector('h4')?.textContent || '';
+                    currentTitles.add(title);
+                });
+                
+                let projectToAdd = null;
+                for (const proj of (window.allAdditionalProjects || [])) {
+                    if (!currentTitles.has(proj.title)) {
+                        projectToAdd = proj;
+                        break;
                     }
+                }
+                
+                if (projectToAdd) {
+                    addProject(projectToAdd);
+                    brutalNotify(`+1 ПРОЕКТ // ${projectToAdd.title}`);
                 } else {
                     brutalNotify('БОЛЬШЕ НЕТ ПРОЕКТОВ');
                     maxProjectsReached = true;
@@ -810,7 +827,7 @@
         }
     }
 
-    // ==================== ПАНЕЛЬ ГЛИТЧА (СБОКУ) ====================
+    // ==================== ПАНЕЛЬ ГЛИТЧА ====================
     function initGlitchPanel() {
         const panel = document.getElementById('glitchPanel');
         const closeBtn = document.getElementById('glitchPanelClose');
