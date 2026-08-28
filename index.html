@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>artfoma </title>
+    <title>artfoma</title>
     <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- Фоновые элементы -->
 <div class="spiral-container">
     <img src="img/spiral.svg" alt="spiral" class="spiral-img" id="spiralImg">
 </div>
-
 <div class="dot-pattern"></div>
 <div class="geo-primitive cross-brut"></div>
 <div class="geo-primitive circle-blunt"></div>
 
+<!-- Лоадер -->
 <div class="ripple-loader" id="loaderScene">
     <div class="ripple-box">
         <div class="ripple-ring">
@@ -32,14 +35,17 @@
     </div>
 </div>
 
+<!-- Основной контент -->
 <main class="main-content" id="mainContent">
-    <section class="hero-section">
+    
+    <!-- HERO -->
+    <section class="hero-section" id="heroSection">
         <div class="hero-card">
             <div class="animated-title">
                 <span class="title-art">artfoma</span>
             </div>
             <div class="mono-tagline" id="tagline">[ идея // код // релиз ]</div>
-            <p class="hero-desc" id="heroDesc">Делаем сложное простым, а скучное — прибыльным.</p>
+            <p class="hero-desc" id="heroDesc">Создаем промо-сайты и 3D-инсталляции, которые повышают время на сайте в 3 раза.</p>
             <div class="btn-group">
                 <div class="brutal-btn" id="exploreBtn">> А СКОЛЬКО СТОИТ? <</div>
                 <div class="brutal-btn secondary" id="projectsBtn">⌘ ПРОЕКТЫ</div>
@@ -47,19 +53,51 @@
         </div>
     </section>
 
-    <section class="features-section">
-        <h2 class="section-title" id="featuresTitle">&lt; услуги &gt;</h2>
-        <div class="features-grid" id="featuresGrid"></div>
-    </section>
-
-    <section class="work-section">
-        <h2 class="section-title" id="worksTitle">// работы</h2>
-        <div class="work-grid" id="workGrid"></div>
-        <div class="center-btn">
-            <div class="brutal-btn" id="moreBtn">[ показать_ещё ]</div>
+    <!-- УСЛУГИ -->
+    <section class="section-wrapper" id="featuresSection">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" id="featuresTitle">&lt; услуги &gt;</h2>
+            </div>
+            <div class="features-grid" id="featuresGrid"></div>
         </div>
     </section>
 
+    <!-- РАБОТЫ -->
+    <section class="section-wrapper" id="workSection">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" id="worksTitle">// работы</h2>
+            </div>
+            <div class="work-grid" id="workGrid"></div>
+            <div class="center-btn">
+                <div class="brutal-btn" id="moreBtn">[ показать_ещё ]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НОВАЯ КОНТАКТНАЯ СЕКЦИЯ (без CLI) -->
+    <section class="section-wrapper" id="contactSection">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" id="contactTitle">// контакт</h2>
+            </div>
+            <div class="contact-card" style="background: var(--white); border: 3px solid var(--black); padding: 2.5rem; box-shadow: var(--shadow-md);">
+                <p style="font-family: monospace; font-size: 1.2rem; margin-bottom: 1.5rem; color: #333;">
+                    Для связи используйте форму ниже — она отправит мне сообщение в Telegram.
+                </p>
+                <div class="contact-form" style="display: flex; flex-direction: column; gap: 1.2rem; max-width: 500px;">
+                    <input type="text" id="contactName" placeholder="Ваше имя" style="padding: 0.8rem; border: 2px solid var(--black); font-family: monospace; background: var(--bg); font-size: 1rem;">
+                    <input type="text" id="contactTag" placeholder="Telegram username или email" style="padding: 0.8rem; border: 2px solid var(--black); font-family: monospace; background: var(--bg); font-size: 1rem;">
+                    <textarea id="contactMessage" rows="4" placeholder="Кратко опишите проект" style="padding: 0.8rem; border: 2px solid var(--black); font-family: monospace; background: var(--bg); font-size: 1rem; resize: vertical;"></textarea>
+                    <div class="brutal-btn" id="sendContactBtn" style="text-align: center; cursor: pointer;">→ ОТПРАВИТЬ В TELEGRAM</div>
+                </div>
+                <div id="contactStatus" style="margin-top: 1.5rem; font-family: monospace; color: var(--accent-purple);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
     <footer class="brutal-footer">
         <div class="footer-content">
             <span class="footer-mono" id="copyright">artfoma © 2026</span>
@@ -69,9 +107,53 @@
     </footer>
 </main>
 
+<!-- МОДАЛЬНОЕ ОКНО: КАЛЬКУЛЯТОР -->
+<div class="modal-overlay" id="modalOverlay" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">// КАЛЬКУЛЯТОР СТОИМОСТИ</span>
+            <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body" id="calculatorBody">
+            <div class="calc-display" id="calcDisplay">Выберите параметры проекта</div>
+            <div class="calc-params" id="calcParams"></div>
+            <div class="calc-result" id="calcResult" style="display: none;">
+                <div class="calc-price" id="calcPrice">~ 500 000 ₽</div>
+                <div class="calc-desc" id="calcDesc">Срок: от 3 недель</div>
+                <div class="calc-breakdown" id="calcBreakdown"></div>
+                <div class="calc-note" id="calcNote">* Точная стоимость обсуждается индивидуально</div>
+            </div>
+            <button class="brutal-btn calc-btn" id="calcConfirm">СВЯЗАТЬСЯ</button>
+        </div>
+    </div>
+</div>
+
+<!-- ОВЕРЛЕЙ ДЛЯ ГЛИТЧ-ПАНЕЛИ -->
+<div class="glitch-panel-overlay" id="glitchOverlay"></div>
+
+<!-- ПАНЕЛЬ УПРАВЛЕНИЯ ГЛИТЧЕМ (СБОКУ) -->
+<div class="glitch-panel" id="glitchPanel">
+    <div class="glitch-panel-header">
+        <span class="glitch-panel-title">⚡ Настройки глитч-эффектов</span>
+        <button class="glitch-panel-close" id="glitchPanelClose">&times;</button>
+    </div>
+    <div class="glitch-panel-body" id="glitchPanelBody">
+        <!-- Загружается из JSON -->
+    </div>
+</div>
+
+<!-- БЫСТРЫЙ ПЕРЕКЛЮЧАТЕЛЬ ДОСТУПНОСТИ С ИКОНКОЙ НАСТРОЕК -->
+<div class="accessibility-toggle" id="accessibilityToggle">
+    <span class="toggle-label">Глитч-режим</span>
+    <span class="toggle-track">
+        <span class="toggle-thumb"></span>
+    </span>
+    <i class="bi bi-gear settings-icon" id="settingsIcon"></i>
+</div>
+
+<!-- КАСТОМНЫЙ КУРСОР -->
 <div class="custom-cursor" id="customCursor"></div>
 
-<script src="data/content.json" type="application/json" id="contentData"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
