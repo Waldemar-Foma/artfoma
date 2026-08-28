@@ -1313,6 +1313,13 @@ body.glitch-reduced .glitch-hover:hover {
     .work-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        justify-items: center;
+    }
+    
+    .work-item,
+    .feature-card {
+        max-width: 400px;
+        width: 100%;
     }
     
     .section-container { padding: 0 1.5rem; }
@@ -1374,4 +1381,9 @@ body.glitch-reduced .glitch-hover:hover {
     .hero-card { padding: 1.5rem; }
     .title-art, .title-foma { font-size: clamp(2rem, 12vw, 3.5rem); }
     .brutal-btn { font-size: 0.9rem; padding: 0.8rem 1.5rem; }
+    
+    .work-item,
+    .feature-card {
+        max-width: 100%;
+    }
 }
