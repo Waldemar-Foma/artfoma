@@ -123,6 +123,7 @@
         }
 
         window.loaderSteps = siteContent.loaderSteps || ['инициализация', 'калибровка', 'активация', 'готово'];
+        renderAchievementsPreview();
     }
 
     // ==================== РЕНДЕРИНГ РАБОТ ====================
@@ -926,6 +927,57 @@
             observer.observe(el);
         });
     }
+    // ==================== ПРЕВЬЮ ДОСТИЖЕНИЙ НА ГЛАВНОЙ ====================
+    async function renderAchievementsPreview() {
+        const container = document.getElementById('achievementsPreview');
+        if (!container) return;
 
+        try {
+            const res = await fetch('data/achievements.json');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            const folder = data.folder || 'img/diploma';
+            const items = (data.items || []).slice(0, 4); // первые 4 для превью
+
+            if (items.length === 0) {
+                container.innerHTML = '<div style="font-family:monospace;color:#666;">Скоро здесь появятся достижения</div>';
+                return;
+            }
+
+            container.innerHTML = '';
+            items.forEach(item => {
+                const path = `${folder}/${item.file}`;
+                const pdf = (item.file || '').toLowerCase().endsWith('.pdf') ||
+                            (item.type || '').toLowerCase() === 'pdf';
+
+                const card = document.createElement('div');
+                card.className = 'achievement-card';
+                card.innerHTML = `
+                    <div class="achievement-thumb">
+                        ${pdf
+                            ? `<span class="pdf-placeholder">📄</span>`
+                            : `<img src="${path}" alt="${escapeHtml(item.title || '')}" loading="lazy">`
+                        }
+                        <span class="file-type">${pdf ? 'PDF' : 'IMG'}</span>
+                    </div>
+                    <div class="achievement-info">
+                        <h4>${escapeHtml(item.title || item.file)}</h4>
+                        <span class="achievement-year">${escapeHtml(item.year || '')}</span>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    window.location.href = 'achievements.html';
+                });
+                container.appendChild(card);
+            });
+
+            // Запоминаем папку для страницы достижений
+            window.__achievementsFolder = folder;
+
+        } catch (err) {
+            console.warn('Не удалось загрузить превью достижений:', err);
+            container.innerHTML = '<div style="font-family:monospace;color:#666;">Достижения скоро появятся</div>';
+        }
+    }
     init();
 })();
