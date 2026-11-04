@@ -1,0 +1,69 @@
+:root {
+    /* — нейтральные — */
+    --paper:#F4F3EE;
+    --snow:#FBFAF7;
+    --line:#D8D5CC;
+    --stone:#6B6962;
+    --ink:#121212;
+  
+    /* — акцент 1: PINE, главный — */
+    --pine:#14452F;
+    --pine-deep:#0C2E1F;
+    --pine-mist:#DDE8DF;
+  
+    /* — акцент 2: BUTTER, подсветка и акцент на Ink — */
+    --butter:#FFE48A;
+    --butter-press:#FFD84D;
+    --butter-soft:#FFF3C4;
+  
+    /* — декор: только пятна и 1–2 стикера — */
+    --rose:#FFB8D4;
+    --rose-soft:#FFE3EE;
+  
+    /* — служебный — */
+    --error:#B3261E;
+  
+    /* — семантические переменные темы.
+       Значения по умолчанию — для светлых секций.
+       В [data-theme="dark"] переопределяются (см. ниже). */
+    --accent: var(--pine);
+    --accent-press: var(--pine-deep);
+    --accent-soft: var(--pine-mist);
+    --on-accent: var(--paper);
+  
+    /* — геометрия — */
+    --radius-card: 28px;
+    --radius-card-lg: 32px;
+    --radius-pill: 999px;
+    --header-h: 72px;
+  
+    /* — шрифты (фолбэки) — */
+    --font-head: "Oswald", system-ui, sans-serif;
+    --font-body: "Involve", "Onest", system-ui, sans-serif;
+    --font-hand: "Caveat", cursive;
+  
+    /* — контейнер и поля — */
+    --container: 1240px;
+    --gutter: clamp(16px, 3vw, 32px);
+  
+    /* — безопасные зоны — */
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-r: env(safe-area-inset-right, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-l: env(safe-area-inset-left, 0px);
+  
+    /* — динамическая высота — */
+    --vh-full: 100vh;
+    --vh-full: 100svh;
+  }
+  @supports (height: 100dvh) {
+    :root { --vh-dyn: 100dvh; }
+  }
+  
+  /* Тёмная тема: акцент — Butter, текст на акценте — Ink. */
+  [data-theme="dark"] {
+    --accent: var(--butter);
+    --accent-press: var(--butter-press);
+    --accent-soft: rgba(255,228,138,.14); /* мягкая подсветка на Ink без введения нового цвета */
+    --on-accent: var(--ink);
+  }
