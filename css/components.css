@@ -1,0 +1,352 @@
+
+  .btn{
+  display: inline-flex; align-items: center; justify-content: center; gap:.5em;
+  min-height: 44px;
+  font-family: var(--font-body); font-weight: 500; font-size: 16px;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease;
+  will-change: transform;
+  touch-action: manipulation;
+}
+
+/* Основная: на светлом Pine/Paper, на тёмном Butter/Ink */
+.btn--primary{
+  background: var(--accent);
+  color: var(--on-accent);
+}
+@media (hover: hover) and (pointer: fine){
+  .btn:hover{ transform: translateY(-2px); }
+  .btn--primary:hover{ background: var(--accent-press); }
+}
+.btn:active{ transform: translateY(0) scale(.97); }
+
+/* Текстовая ссылка-кнопка: Pine на светлом, Butter на тёмном */
+.btn--link{
+  background: transparent;
+  color: var(--accent);
+  padding: 6px 2px;
+  border-radius: 0;
+  min-height: 0;
+  position: relative;
+}
+.btn--link::after{
+  content:"";
+  position: absolute; left:0; bottom:0; height:2px; width:100%;
+  background: currentColor;
+  transition: transform .25s ease;
+}
+.btn--link .marker{
+  position: absolute; inset:0;
+  background: var(--butter);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+  z-index: -1; border-radius: 4px;
+}
+@media (hover: hover) and (pointer: fine){
+  .btn--link:hover .marker{ transform: scaleX(1); }
+}
+.btn--link:active{ opacity:.85; }
+
+/* Контурная кнопка Paper на Ink — для «Скопировать» */
+.btn--ghost{
+  background: transparent;
+  color: var(--paper);
+  border: 1.5px solid rgba(251,250,247,.45);
+}
+@media (hover: hover) and (pointer: fine){
+  .btn--ghost:hover{ border-color: var(--butter); color: var(--butter); }
+}
+
+/* ———— Логотип ———— */
+.brand{
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-head); font-weight: 600;
+  min-height: 44px;
+}
+.brand__logo{
+  /* без подложки, без фона */
+  background: none;
+  border-radius: 0;
+  width: 32px; height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+  overflow: visible;
+  flex-shrink: 0;
+  font-family: var(--font-head); font-weight: 800;
+  font-size: 20px; color: var(--pine);
+}
+.brand__logo img{
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+.brand__text{ font-size: 16px; }
+
+/* ———— Хедер ———— */
+.site-header{
+  position: fixed; top:0; left:0; right:0;
+  z-index: 100;
+  padding-top: var(--safe-t);
+  transition: transform .35s ease, background-color .3s ease;
+  will-change: transform;
+}
+.site-header.is-hidden{ transform: translateY(-110%); }
+.site-header.scrolled{
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="dark"] .site-header.scrolled{
+  background: color-mix(in srgb, var(--ink) 92%, transparent);
+  border-bottom-color: rgba(251,250,247,.12);
+}
+
+.header-inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 12px max(var(--gutter), var(--safe-r)) 12px max(var(--gutter), var(--safe-l));
+  display: flex; align-items: center; gap: 16px; justify-content: space-between;
+}
+.header-nav{ display: flex; gap: clamp(12px,2vw,28px); }
+.nav-link{
+  color: var(--stone);
+  font-size: 15px;
+  position: relative;
+  padding: 8px 4px;
+  transition: color .2s;
+  min-height: 44px;
+  display: inline-flex; align-items: center;
+}
+.nav-link.is-active{ color: var(--pine); }
+.nav-link.is-active::after{
+  content:"";
+  position: absolute; left:0; right:0; bottom: 6px;
+  height: 3px;
+  background: var(--butter);
+  border-radius: 2px;
+}
+@media (hover: hover) and (pointer: fine){
+  .nav-link:hover{ color: var(--pine); }
+}
+.header-actions{ display:flex; align-items:center; gap:12px; }
+.header-cta{ white-space: nowrap; }
+
+/* Бургер */
+.burger{
+  width: 48px; height: 48px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--line);
+  background: var(--snow);
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px;
+  transition: background-color .2s;
+  touch-action: manipulation;
+}
+@media (hover: hover) and (pointer: fine){
+  .burger:hover{ background: var(--pine-mist); }
+}
+.burger:active{ transform: scale(.95); }
+.burger__line{
+  width: 20px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .3s ease;
+}
+.burger[aria-expanded="true"] .burger__line:first-child{ transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded="true"] .burger__line:last-child{ transform: translateY(-4px) rotate(-45deg); }
+
+@media (max-width: 900px){
+  .header-nav, .header-cta{ display: none; }
+}
+
+/* ———— Оверлей-меню (Ink) ———— */
+.overlay{
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--ink); color: var(--paper);
+  display: flex; flex-direction: column;
+  clip-path: circle(0% at calc(100% - 40px) 40px);
+  transition: clip-path .6s cubic-bezier(.22,.61,.36,1);
+  overflow: hidden;
+}
+.overlay[hidden]{ display: none; }
+.overlay.is-open{ clip-path: circle(150% at calc(100% - 40px) 40px); }
+.overlay__inner{
+  flex: 1; display: flex; flex-direction: column;
+  padding: max(20px, var(--safe-t)) max(20px, var(--safe-r)) max(20px, var(--safe-b)) max(20px, var(--safe-l));
+  max-width: 1400px; margin: 0 auto; width: 100%;
+  position: relative; z-index: 2;
+}
+.overlay__close{
+  position: absolute;
+  top: calc(20px + var(--safe-t));
+  right: calc(20px + var(--safe-r));
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1.5px solid rgba(251,250,247,.3);
+  background: transparent; color: var(--paper);
+  font-size: 20px;
+  transition: background-color .2s;
+  min-height: 52px;
+}
+@media (hover: hover) and (pointer: fine){
+  .overlay__close:hover{ background: rgba(251,250,247,.1); }
+}
+.overlay-nav{ margin: auto 0; }
+.overlay-list{
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  gap: clamp(8px,1.5vw,18px);
+}
+.overlay-item{ display: flex; flex-direction: column; gap: 4px; transition: transform .4s ease; }
+.overlay-item--left{ align-items: flex-start; text-align: left; }
+.overlay-item--right{ align-items: flex-end; text-align: right; }
+
+.overlay-link{
+  display: inline-flex; align-items: baseline; gap: .4em;
+  font-family: var(--font-head); font-weight: 800;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-size: clamp(38px, 7.5vw, 104px);
+  color: var(--stone);
+  transition: color .3s ease, letter-spacing .4s ease;
+  min-height: 44px;
+}
+.overlay-link__txt{ display: inline-block; }
+.overlay-count{
+  font-family: var(--font-body); font-weight: 500;
+  font-size: clamp(14px, 1.2vw + 8px, 20px);
+  color: var(--butter);
+}
+.overlay-note{
+  font-family: var(--font-hand);
+  font-size: clamp(16px, 1.3vw + 10px, 24px);
+  color: var(--butter);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+@media (hover: hover) and (pointer: fine){
+  .overlay-list:hover .overlay-link{ color: color-mix(in srgb, var(--stone) 60%, var(--ink)); }
+  .overlay-link:hover{ color: var(--paper); letter-spacing: .04em; }
+  .overlay-list:hover .overlay-link:hover{ color: var(--paper); }
+  .overlay-item:hover + .overlay-item{ transform: translateY(12px); }
+  .overlay-item:hover{ transform: translateY(-4px); }
+  .overlay-item:hover .overlay-note{ opacity: 1; transform: translateY(0); }
+}
+
+.overlay-foot{
+  display: flex; flex-wrap: wrap; gap: 16px;
+  align-items: center; justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(251,250,247,.15);
+}
+.overlay-socials{ display: flex; gap: 20px; flex-wrap: wrap; }
+.overlay-socials a{
+  color: var(--paper); opacity: .7;
+  transition: opacity .2s, color .2s;
+  min-height: 44px; display: inline-flex; align-items: center;
+}
+@media (hover: hover) and (pointer: fine){
+  .overlay-socials a:hover{ opacity: 1; color: var(--butter); }
+}
+.overlay-preview{
+  position: absolute;
+  width: 220px; height: 150px;
+  border-radius: 16px; overflow: hidden;
+  pointer-events: none;
+  opacity: 0; transition: opacity .25s; z-index: 1;
+  border: 2px solid rgba(251,250,247,.2);
+}
+.overlay-preview.is-visible{ opacity: 1; }
+.overlay-preview .ph{ width: 100%; height: 100%; }
+
+/* Кнопка «Написать» в оверлее — Butter на Ink (это CTA на тёмном) */
+.overlay .btn--primary{
+  background: var(--butter);
+  color: var(--ink);
+}
+@media (hover: hover) and (pointer: fine){
+  .overlay .btn--primary:hover{ background: var(--butter-press); }
+}
+
+@media (max-width: 900px){
+  .overlay-link{ font-size: clamp(30px, 11vw, 64px); }
+  .overlay-note{ opacity: 1; transform: none; }
+  .overlay-item--right{ align-items: flex-start; text-align: left; }
+}
+@media (max-height: 500px) and (orientation: landscape){
+  .overlay-list{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .overlay-item--right{ align-items: flex-start; text-align: left; }
+  .overlay-link{ font-size: clamp(24px, 6vw, 48px); }
+  .overlay-note{ display: none; }
+}
+
+/* ———— Курсор ———— */
+.cursor{
+  position: fixed; top: 0; left: 0;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);          /* Pine на светлом, Butter на тёмном */
+  pointer-events: none; z-index: 500;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, background-color .2s ease;
+  display: none;
+  will-change: transform, width, height;
+}
+.cursor.is-visible{ display: block; }
+.cursor.is-big{ width: 64px; height: 64px; }
+.cursor__label{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  color: var(--on-accent);            /* Paper на Pine, Ink на Butter */
+  opacity: 0; white-space: nowrap;
+  font-family: var(--font-body); font-weight: 500;
+}
+.cursor.is-big .cursor__label{ opacity: 1; }
+
+/* Тема курсора определяется data-theme секции через класс на <html>.
+    cursor.js ставит data-cursor-dark на <html>, когда курсор над Ink-секцией. */
+[data-cursor-dark] .cursor{ background: var(--butter); }
+[data-cursor-dark] .cursor__label{ color: var(--ink); }
+
+html[data-input="touch"] .cursor{ display: none !important; }
+
+/* ———— Формы ———— */
+.field{ display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field label{ font-size: 13px; color: var(--stone); }
+.field input, .field textarea{
+  background: var(--snow);
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 16px; color: var(--ink); font-family: inherit;
+  transition: border-color .2s ease, box-shadow .2s ease;
+  min-height: 48px;
+}
+.field textarea{ min-height: 120px; resize: vertical; }
+.field input:focus, .field textarea:focus{
+  outline: none;
+  border-color: var(--pine);
+  box-shadow: 0 0 0 2px var(--pine);
+}
+[data-theme="dark"] .field input, [data-theme="dark"] .field textarea{
+  background: #1c1c1c;
+  border-color: rgba(251,250,247,.25);
+  color: var(--snow);
+}
+[data-theme="dark"] .field input:focus, [data-theme="dark"] .field textarea:focus{
+  border-color: var(--butter);
+  box-shadow: 0 0 0 2px var(--butter);
+}
+.field.has-error input, .field.has-error textarea{ border-color: var(--error); }
+.field-error{ font-size: 12px; color: var(--error); min-height: 1em; }
+.form-status{ font-size: 14px; color: var(--stone); }
+[data-theme="dark"] .form-status{ color: var(--butter); }
+
+/* ———— Стикеры/декор-фигуры ———— */
+.sticker-sticker{
+  position: absolute;
+  width: 60px; height: 60px;
+  opacity: .9;
+  pointer-events: none;
+}

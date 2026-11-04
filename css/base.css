@@ -1,0 +1,135 @@
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(16px, 1.05vw + 12px, 18px);
+  line-height: 1.5;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; background:none; border:0; color:inherit; }
+
+/* Выделение текста */
+::selection{ background: var(--butter); color: var(--ink); }
+
+/* Скроллбар (если стилизуется) */
+*{ scrollbar-color: var(--line) var(--paper); scrollbar-width: thin; }
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+::-webkit-scrollbar-track{ background: var(--paper); }
+::-webkit-scrollbar-thumb{ background: var(--line); border-radius: 6px; }
+
+h1,h2,h3{
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  margin: 0;
+  text-wrap: balance;
+}
+p{ margin: 0; text-wrap: pretty; }
+
+/* — выделение в заголовках — */
+/* Маркер Butter под словом Pine */
+.hl-marker{
+  color: var(--pine);
+  position: relative;
+  white-space: nowrap;
+}
+.hl-marker::after{
+  content:"";
+  position:absolute;
+  left:-.06em; right:-.06em; bottom:.02em;
+  height:.3em;
+  background: var(--butter);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+/* Слово в Butter-таблетке с текстом Ink */
+.hl-pill{
+  background: var(--butter);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  padding: .02em .28em;
+  white-space: nowrap;
+}
+
+/* На Ink-секциях: выделенное слово — Butter */
+.hl-butter{ color: var(--butter); }
+
+/* — рукописное — */
+.handwritten{
+  font-family: var(--font-hand);
+  font-size: clamp(18px, 1.6vw + 12px, 24px);
+  color: var(--stone);
+  line-height: 1.1;
+}
+[data-theme="dark"] .handwritten{ color: var(--butter); }
+
+/* — фокус — */
+/* На светлом — Pine. На тёмном — Butter (через data-theme). */
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:focus:not(:focus-visible){ outline: none; }
+
+/* — ссылка для скринридеров — */
+.skip-link{
+  position: absolute; left:-999px; top:0; z-index:1000;
+  background: var(--ink); color: var(--snow);
+  padding: 10px 16px; border-radius: 8px;
+}
+.skip-link:focus{
+  left: calc(12px + var(--safe-l));
+  top:  calc(12px + var(--safe-t));
+}
+
+/* — секции — */
+main > section, .dark-block{ position: relative; }
+.section-head{ max-width: 760px; margin: 0 0 clamp(24px,4vw,48px); }
+.section-title{ font-size: clamp(28px, 3.4vw + 16px, 56px); }
+.section-sub{
+  color: var(--stone);
+  font-size: clamp(15px, 1vw + 12px, 18px);
+  margin: 16px 0 0;
+  max-width: 56ch;
+}
+[data-theme="dark"] .section-sub{ color: rgba(251,250,247,.65); }
+
+/* — утилиты — */
+.hp{ position: absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+
+/* — курсор: родной скрыт только когда кастомный готов и мышь — */
+html[data-input="mouse"] body{ cursor: auto; }
+html[data-input="mouse"][data-cursor-ready="true"] body{ cursor: none; }
+html[data-input="touch"] body{ cursor: auto; }
+
+/* — декор не даёт горизонтального скролла — */
+.hero, .works, .services, .calculator, .process, .team, .reviews, .contacts, .site-footer{
+  overflow-x: clip;
+}
+
+/* — reduced-motion — */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
