@@ -44,8 +44,6 @@ h1,h2,h3{
 }
 p{ margin: 0; text-wrap: pretty; }
 
-/* — выделение в заголовках — */
-/* Маркер Butter под словом Pine */
 .hl-marker{
   color: var(--pine);
   position: relative;
