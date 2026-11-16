@@ -1,17 +1,17 @@
 window.ART_DATA = window.ART_DATA || {};
 window.ART_DATA.hero = {
-  tag: "Дизайн-студия, 2026",
+  tag: "ART Foma · independent studio",
   headline: [
-    { text: "Делаем брендам" },
+    { text: "ONE" },
     { pill: "star" },
-    { text: "лицо, которое" },
-    { mark: "не спутать" }
+    { text: "CHARACTER" },
+    { mark: "DIFFERENT" }
   ],
-  subtitle: "Айдентика, сайты и упаковка для тех, кто не хочет выглядеть как все.",
-  cta: { primary: "Обсудить проект", secondary: "Посчитать стоимость" },
+  subtitle: "We build identities, interfaces and visual systems that feel specific to the people behind them.",
+  cta: { primary: "Discuss your project", secondary: "Request a brief" },
   previews: ["c1", "c2", "c3", "c4", "c5", "c1", "c3"],
   stats: [
-    { value: "24", label: "кейса" },
-    { value: "7",  label: "лет в дизайне" }
+    { value: "24", label: "projects" },
+    { value: "7", label: "years in practice" }
   ]
 };

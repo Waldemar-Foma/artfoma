@@ -1,63 +1,56 @@
 :root {
-    --paper:#F4F3EE;
-    --snow:#FBFAF7;
-    --line:#D8D5CC;
-    --stone:#6B6962;
-    --ink:#121212;
-  
-    /* — акцент 1: PINE, главный — */
-    --pine:#14452F;
-    --pine-deep:#0C2E1F;
-    --pine-mist:#DDE8DF;
-  
-    /* — акцент 2: BUTTER, подсветка и акцент на Ink — */
-    --butter:#FFE48A;
-    --butter-press:#FFD84D;
-    --butter-soft:#FFF3C4;
-  
-    /* — декор: только пятна и 1–2 стикера — */
-    --rose:#FFB8D4;
-    --rose-soft:#FFE3EE;
-  
-    --error:#B3261E;
-    --accent: var(--pine);
-    --accent-press: var(--pine-deep);
-    --accent-soft: var(--pine-mist);
-    --on-accent: var(--paper);
-  
-    /* — геометрия — */
-    --radius-card: 28px;
-    --radius-card-lg: 32px;
-    --radius-pill: 999px;
-    --header-h: 72px;
-  
-    /* — шрифты (фолбэки) — */
-    --font-head: "Oswald", system-ui, sans-serif;
-    --font-body: "Involve", "Onest", system-ui, sans-serif;
-    --font-hand: "Caveat", cursive;
-  
-    /* — контейнер и поля — */
-    --container: 1240px;
-    --gutter: clamp(16px, 3vw, 32px);
-  
-    /* — безопасные зоны — */
-    --safe-t: env(safe-area-inset-top, 0px);
-    --safe-r: env(safe-area-inset-right, 0px);
-    --safe-b: env(safe-area-inset-bottom, 0px);
-    --safe-l: env(safe-area-inset-left, 0px);
-  
-    /* — динамическая высота — */
-    --vh-full: 100vh;
-    --vh-full: 100svh;
-  }
-  @supports (height: 100dvh) {
-    :root { --vh-dyn: 100dvh; }
-  }
-  
-  /* Тёмная тема: акцент — Butter, текст на акценте — Ink. */
-  [data-theme="dark"] {
-    --accent: var(--butter);
-    --accent-press: var(--butter-press);
-    --accent-soft: rgba(255,228,138,.14); /* мягкая подсветка на Ink без введения нового цвета */
-    --on-accent: var(--ink);
-  }
+  --paper: #f3eee7;
+  --paper-strong: #e8dfd4;
+  --snow: #fbf9f5;
+  --soft-ivory: #f9f3ea;
+  --line: rgba(23, 19, 16, 0.12);
+  --line-strong: rgba(23, 19, 16, 0.2);
+  --stone: #5a514d;
+  --ink: #171310;
+
+  --clay: #a9604b;
+  --clay-soft: #efd2ca;
+  --terracotta: #c66a4d;
+
+  --butter: #e9c56d;
+  --butter-soft: #f6e5b4;
+  --amber: #d8a651;
+
+  --pine: #264738;
+  --pine-deep: #1c3129;
+  --pine-soft: #dfeae2;
+
+  --rose: #d9aba0;
+  --rose-soft: #f8e2db;
+
+  --error: #b3261e;
+
+  --accent: var(--pine);
+  --accent-press: var(--pine-deep);
+  --accent-soft: var(--pine-soft);
+  --on-accent: var(--snow);
+
+  --radius-card: 26px;
+  --radius-card-lg: 34px;
+  --radius-pill: 999px;
+  --header-h: 74px;
+
+  --font-head: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Onest", "Segoe UI", sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --container: 1280px;
+  --gutter: clamp(16px, 3vw, 32px);
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+}
+
+[data-theme="dark"] {
+  --accent: var(--butter);
+  --accent-press: var(--amber);
+  --accent-soft: rgba(233, 197, 109, 0.14);
+  --on-accent: var(--ink);
+}

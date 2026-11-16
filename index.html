@@ -3,32 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ART.Foma — дизайн-студия: айдентика, логотипы, веб-дизайн</title>
-  <meta name="description" content="ART.Foma — дизайн-студия. Делаем брендам лицо, которое не спутать: айдентика, сайты, упаковка. Считай стоимость онлайн и расскажи, что болит.">
-  
-  <meta property="og:url" content="https://artfoma.ru/">
-  <meta property="og:title" content="ART.Foma — дизайн-студия">
-  <meta property="og:description" content="Айдентика, сайты и упаковка для тех, кто не хочет выглядеть как все.">
+  <title>ART Foma — independent creative studio</title>
+  <meta name="description" content="ART Foma is an independent creative studio building brands, digital products and visual systems with character.">
+  <meta property="og:title" content="ART Foma — independent creative studio">
   <meta property="og:type" content="website">
+  <meta property="og:description" content="Branding, identity systems, web design and creative direction for ideas that need a real visual language.">
   <meta property="og:image" content="https://artfoma.ru/icons/logo/og-image.jpg">
-  <meta property="og:locale" content="ru_RU">
-
-  <meta name="msapplication-TileColor" content="#F4F3EE">
-  <meta name="theme-color" content="#F4F3EE">
+  <meta property="og:url" content="https://artfoma.ru/">
+  <meta name="theme-color" content="#f3eee7">
 
   <link rel="icon" href="./icons/logo/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="./icons/logo/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="./icons/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./icons/logo/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./icons/logo/apple-touch-icon.png">
-  <link rel="manifest" href="./site.webmanifest">
-  <link rel="mask-icon" href="./icons/logo/safari-pinned-tab.svg" color="#14452F">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Onest:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./css/skeleton.css">
   <link rel="stylesheet" href="./css/tokens.css">
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/components.css">
@@ -48,7 +39,6 @@
   <script defer src="./js/data/team.js"></script>
 
   <script defer src="./js/env.js"></script>
-
   <script defer src="./js/core/namespace.js"></script>
   <script defer src="./js/core/bus.js"></script>
   <script defer src="./js/core/utils.js"></script>
@@ -78,171 +68,199 @@
   <script defer src="./js/main.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#hero">К содержимому</a>
+  <a class="skip-link" href="#hero">Skip to content</a>
 
   <header class="site-header" id="siteHeader" data-theme="light">
     <div class="header-inner">
-      <a class="brand" href="#hero" aria-label="ART.Foma">
+      <a class="brand" href="#hero" aria-label="ART Foma home">
         <span class="brand__logo">
-          <img src="./icons/logo.png" alt="ART.Foma" width="32" height="32" loading="eager"
-               onerror="this.style.display='none';this.parentNode.textContent='A'">
+          <img src="./icons/logo.png" alt="ART Foma" width="32" height="32" loading="eager">
         </span>
-        <span class="brand__text">ART.Foma</span>
+        <span class="brand__text">ART Foma</span>
       </a>
-      <nav class="header-nav" aria-label="Основная навигация">
-        <a href="#works" class="nav-link" data-nav="works">Работы</a>
-        <a href="#services" class="nav-link" data-nav="services">Услуги</a>
-        <a href="#calculator" class="nav-link" data-nav="calculator">Калькулятор</a>
-        <a href="#contacts" class="nav-link" data-nav="contacts">Контакты</a>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#works" class="nav-link" data-nav="works">Works</a>
+        <a href="#services" class="nav-link" data-nav="services">Services</a>
+        <a href="#studio" class="nav-link" data-nav="studio">Studio</a>
+        <a href="#contacts" class="nav-link" data-nav="contacts">Contact</a>
       </nav>
+
       <div class="header-actions">
-        <a href="#contacts" class="btn btn--primary header-cta">Обсудить проект</a>
-        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="overlayMenu">
-          <span class="burger__line"></span><span class="burger__line"></span>
+        <a href="#contacts" class="btn btn--primary header-cta">Discuss a project</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="overlayMenu">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
         </button>
       </div>
     </div>
   </header>
 
-  <div class="overlay" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+  <div class="overlay" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Main menu" hidden>
     <div class="overlay__inner">
-      <button class="overlay__close" id="overlayClose" aria-label="Закрыть меню">✕</button>
-      <nav class="overlay-nav" aria-label="Меню">
+      <button class="overlay__close" id="overlayClose" aria-label="Close menu">✕</button>
+      <nav class="overlay-nav" aria-label="Menu">
         <ul class="overlay-list">
           <li class="overlay-item overlay-item--left">
             <a href="#works" class="overlay-link" data-menu-link>
-              <span class="overlay-link__txt">РАБОТЫ</span>
+              <span class="overlay-link__txt">Works</span>
               <span class="overlay-count" data-cases-count>0</span>
             </a>
-            <span class="overlay-note">всё, чем гордимся ( здесь может быть твой проект )</span>
+            <span class="overlay-note">selected work</span>
           </li>
           <li class="overlay-item overlay-item--right">
             <a href="#services" class="overlay-link" data-menu-link>
-              <span class="overlay-link__txt">УСЛУГИ И ЦЕНЫ</span>
+              <span class="overlay-link__txt">Services</span>
             </a>
-            <span class="overlay-note">мы тоже кушать хотим, понимаешь?</span>
+            <span class="overlay-note">identity + web</span>
           </li>
           <li class="overlay-item overlay-item--left">
-            <a href="#calculator" class="overlay-link" data-menu-link>
-              <span class="overlay-link__txt">КАЛЬКУЛЯТОР</span>
+            <a href="#studio" class="overlay-link" data-menu-link>
+              <span class="overlay-link__txt">Studio</span>
             </a>
-            <span class="overlay-note">посчитай сам</span>
+            <span class="overlay-note">how we think</span>
           </li>
           <li class="overlay-item overlay-item--right">
             <a href="#contacts" class="overlay-link" data-menu-link>
-              <span class="overlay-link__txt">КОНТАКТЫ</span>
+              <span class="overlay-link__txt">Contact</span>
             </a>
-            <span class="overlay-note">расскажи, что болит</span>
+            <span class="overlay-note">let's build something clear</span>
           </li>
         </ul>
       </nav>
+
       <div class="overlay-foot">
         <div class="overlay-socials">
           <a href="https://t.me/ART_fom3nko" target="_blank" rel="noopener">Telegram</a>
           <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://behance.net/" target="_blank" rel="noopener">Behance</a>
         </div>
-        <a href="#contacts" class="btn btn--primary" data-menu-link>Написать</a>
+        <a href="#contacts" class="btn btn--primary" data-menu-link>Write us</a>
       </div>
     </div>
-    <div class="overlay-preview" id="overlayPreview" aria-hidden="true"></div>
   </div>
 
   <main>
     <section id="hero" class="hero" data-theme="light" aria-labelledby="heroTitle">
       <div class="hero__panel">
-
         <svg class="hero__links" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
           <g stroke="var(--line)" stroke-width="1" fill="none" stroke-dasharray="3 6" opacity=".8">
             <path d="M140 190 C 340 260, 480 340, 600 400"/>
             <path d="M1050 170 C 900 250, 760 320, 600 400"/>
             <path d="M180 640 C 360 560, 500 500, 600 400"/>
             <path d="M1030 650 C 880 570, 740 500, 600 400"/>
-            <path d="M420 90  C 500 200, 560 300, 600 400"/>
-            <path d="M780 90  C 700 200, 640 300, 600 400"/>
+            <path d="M420 90 C 500 200, 560 300, 600 400"/>
+            <path d="M780 90 C 700 200, 640 300, 600 400"/>
           </g>
           <g fill="var(--butter)">
             <circle cx="140" cy="190" r="4"/>
             <circle cx="1050" cy="170" r="4"/>
             <circle cx="180" cy="640" r="4"/>
             <circle cx="1030" cy="650" r="4"/>
-            <circle cx="420" cy="90"  r="4"/>
-            <circle cx="780" cy="90"  r="4"/>
+            <circle cx="420" cy="90" r="4"/>
+            <circle cx="780" cy="90" r="4"/>
           </g>
         </svg>
 
         <div class="hero__previews" id="heroPreviews" aria-hidden="false"></div>
+
         <div class="hero__content">
-          <span class="hero__tag" data-hero-tag>Дизайн-студия, 2026</span>
+          <span class="hero__tag" data-hero-tag>ART Foma · independent studio</span>
           <h1 class="hero__title" id="heroTitle" data-hero-headline></h1>
           <p class="hero__subtitle" data-hero-subtitle>
-            Айдентика, сайты и упаковка для тех, кто не хочет выглядеть как все.
+            We build identities, interfaces and visual systems that feel specific to the people behind them.
           </p>
 
           <div class="hero__actions">
-            <a href="#contacts" class="btn btn--primary hero__cta" data-cursor-label="написать" data-hero-cta-primary>Обсудить проект</a>
-            <a href="#calculator" class="btn btn--ghost btn--ghost-dark" data-cursor-label="посчитать" data-hero-cta-secondary>
+            <a href="#contacts" class="btn btn--primary" data-cursor-label="write" data-hero-cta-primary>Discuss your project</a>
+            <a href="#calculator" class="btn btn--ghost" data-cursor-label="brief" data-hero-cta-secondary>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M8 5v14l11-7z" fill="currentColor"/>
               </svg>
-              Посчитать стоимость
+              Request a brief
             </a>
           </div>
 
-          <div class="hero__proof" aria-label="Нам доверяют">
+          <div class="hero__proof" aria-label="Selected work">
             <div class="hero__avatars" aria-hidden="true">
-              <span class="hero__avatar" style="background:var(--pine-mist)">А</span>
-              <span class="hero__avatar" style="background:var(--butter)">М</span>
-              <span class="hero__avatar" style="background:var(--rose-soft)">О</span>
-              <span class="hero__avatar" style="background:var(--pine)">К</span>
+              <span class="hero__avatar" style="background:var(--pine-soft)">A</span>
+              <span class="hero__avatar" style="background:var(--butter-soft)">M</span>
+              <span class="hero__avatar" style="background:var(--rose-soft)">O</span>
+              <span class="hero__avatar" style="background:var(--pine)">K</span>
               <span class="hero__avatar hero__avatar--more">+24</span>
             </div>
-            <p class="hero__proof-text">
-              <strong>24 бренда</strong> уже с новым лицом
-            </p>
+            <p class="hero__proof-text"><strong>24 projects</strong> shaped around distinct voices and clearer positioning.</p>
           </div>
         </div>
       </div>
 
-      <div class="hero__partners" aria-label="Клиенты и партнёры">
-        <span class="hero__partners-label">Нам доверяют</span>
+      <div class="hero__partners" aria-label="Creative focus">
+        <span class="hero__partners-label">Focus</span>
         <ul class="hero__partners-list">
-          <li>Пар</li>
-          <li>Тихо</li>
-          <li>Пыль</li>
-          <li>Считай</li>
-          <li>Зерно</li>
-          <li>Финтех+</li>
+          <li>Branding</li>
+          <li>Identity</li>
+          <li>Web</li>
+          <li>Packaging</li>
+          <li>Art direction</li>
         </ul>
       </div>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track" id="marqueeTrack">
-        <span>#айдентика</span><span>#логотипы</span><span>#веб-дизайн</span><span>#UX/UI</span><span>#упаковка</span><span>#соцсети</span><span>#презентации</span><span>#моушн</span><span>#иллюстрации</span><span>#нейминг</span><span>#гайдлайны</span><span>#3D</span>
+        <span>#branding</span><span>#identity</span><span>#web</span><span>#ux-ui</span><span>#packaging</span><span>#creative-direction</span><span>#visual-systems</span>
       </div>
     </div>
 
     <section id="works" class="works" data-theme="light">
       <div class="section-head">
-        <h2 class="section-title">РАБОТЫ, <span class="hl-marker">ЗА КОТОРЫЕ</span> НЕ СТЫДНО</h2>
-        <p class="section-sub">Пара кейсов, чтобы стало понятно, как мы думаем и что умеем.</p>
+        <h2 class="section-title">Selected <span class="hl-marker">work</span></h2>
+        <p class="section-sub">Every project gets its own logic, voice, and visual tension. The system stays consistent; the language changes.</p>
       </div>
       <div class="works-grid" id="worksGrid"></div>
     </section>
 
+    <section id="studio" class="services" data-theme="light">
+      <div class="section-head">
+        <h2 class="section-title">Studio <span class="hl-pill">philosophy</span></h2>
+        <p class="section-sub">We are not building a generic studio template. We study the problem, move with intention, and make the form serve the idea.</p>
+      </div>
+      <div class="process-track">
+        <div class="process-step">
+          <span class="process-num">01</span>
+          <strong>Read the brief</strong>
+          <span>We look for the real tension, the audience, the context and the risk of sameness.</span>
+        </div>
+        <div class="process-step">
+          <span class="process-num">02</span>
+          <strong>Shape direction</strong>
+          <span>Visual systems are formed from meaning, not from trends or borrowed agency formulas.</span>
+        </div>
+        <div class="process-step">
+          <span class="process-num">03</span>
+          <strong>Build the form</strong>
+          <span>Typography, layout, motion and composition are used with purpose and rhythm.</span>
+        </div>
+        <div class="process-step">
+          <span class="process-num">04</span>
+          <strong>Ship cleanly</strong>
+          <span>We deliver a thoughtful system that remains usable, stable and easy to grow.</span>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="services" data-theme="light">
       <div class="section-head">
-        <h2 class="section-title">УСЛУГИ И <span class="hl-pill">ЦЕНЫ</span></h2>
-        <p class="section-sub">Без «уточняйте в личке». Вот примерные вилки — финал назовём после брифа.</p>
+        <h2 class="section-title">Services <span class="hl-marker">for ambitious brands</span></h2>
+        <p class="section-sub">Branding, digital design and communication systems for businesses that need clarity without looking generic.</p>
       </div>
       <ul class="services-list" id="servicesList"></ul>
     </section>
 
     <section id="calculator" class="calculator" data-theme="light">
       <div class="section-head">
-        <h2 class="section-title">КАЛЬКУЛЯТОР <span class="hl-marker">ЗАКАЗА</span></h2>
-        <p class="section-sub">Выбери услугу, докрути параметры и увидь вилку. Честно и сразу.</p>
+        <h2 class="section-title">Project <span class="hl-pill">estimate</span></h2>
+        <p class="section-sub">The scope is not a guess. We structure the work around the actual problem, timeline and level of design depth.</p>
       </div>
       <div class="calc-layout">
         <div class="calc-steps" id="calcSteps"></div>
@@ -250,68 +268,58 @@
       </div>
     </section>
 
-    <section id="process" class="process" data-theme="light">
-      <div class="section-head">
-        <h2 class="section-title">КАК <span class="hl-pill">ИДЁТ</span> РАБОТА</h2>
-      </div>
-      <ol class="process-track">
-        <li class="process-step"><span class="process-num">01</span><span>Бриф и вопросы</span></li>
-        <li class="process-step"><span class="process-num">02</span><span>Концепции и направление</span></li>
-        <li class="process-step"><span class="process-num">03</span><span>Дизайн и правки</span></li>
-        <li class="process-step"><span class="process-num">04</span><span>Передача и поддержка</span></li>
-      </ol>
-    </section>
-
     <section id="team" class="team" data-theme="light">
       <div class="section-head">
-        <h2 class="section-title">КТО <span class="hl-marker">ДЕЛАЕТ</span></h2>
-        <p class="section-sub">Маленькая команда, которая берёт мало проектов — чтобы делать хорошо.</p>
+        <h2 class="section-title">The <span class="hl-marker">team</span></h2>
+        <p class="section-sub">Small, independent and collaborative. We value authorship, clarity of roles and a studio culture with room for personal thinking.</p>
       </div>
       <div class="team-grid" id="teamGrid"></div>
-      <span class="team-note handwritten">все свои, без подрядчиков-призраков</span>
+      <div class="team-note handwritten" style="display:block;margin-top:18px;">small team, sharp thinking, serious craft</div>
     </section>
 
     <section id="reviews" class="reviews" data-theme="light">
       <div class="section-head">
-        <h2 class="section-title">ЧТО <span class="hl-pill">ГОВОРЯТ</span></h2>
+        <h2 class="section-title">What <span class="hl-pill">clients say</span></h2>
       </div>
-      <div class="reviews-track" id="reviewsTrack" role="list" aria-label="Отзывы клиентов" tabindex="0"></div>
+      <div class="reviews-track" id="reviewsTrack" role="list" aria-label="Client reviews"></div>
     </section>
 
     <div class="dark-block" data-theme="dark">
       <section id="contacts" class="contacts">
         <div class="contacts__head">
-          <h2 class="contacts__title">ЕСТЬ ЗАДАЧА? <span class="hl-butter">РАССКАЖИ НАМ.</span></h2>
-          <p class="contacts__sub">Пара строк о проекте — и мы вернёмся с вопросами. Без воды и продаж.</p>
+          <h2 class="contacts__title">Need a stronger <span class="hl-butter">visual voice?</span></h2>
+          <p class="contacts__sub">Tell us what needs to be clearer, sharper or more memorable. We’ll map the right direction.</p>
         </div>
+
         <div class="contacts__grid">
           <form class="lead-form" id="leadForm" novalidate>
             <div class="field">
-              <label for="lf-name">Как тебя звать</label>
+              <label for="lf-name">Your name</label>
               <input id="lf-name" name="name" type="text" autocomplete="name" required>
               <span class="field-error" data-error-for="name"></span>
             </div>
             <div class="field">
-              <label for="lf-contact">Телефон, Telegram или почта</label>
+              <label for="lf-contact">Phone, Telegram or email</label>
               <input id="lf-contact" name="contact" type="text" autocomplete="email" required>
               <span class="field-error" data-error-for="contact"></span>
             </div>
             <div class="field">
-              <label for="lf-message">Что нужно сделать</label>
+              <label for="lf-message">What are you building?</label>
               <textarea id="lf-message" name="message" rows="4" required></textarea>
               <span class="field-error" data-error-for="message"></span>
             </div>
             <input type="hidden" name="calc" id="lf-calc">
             <input type="text" name="company_website" id="lf-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-actions">
-              <button type="submit" class="btn btn--primary" id="leadSubmit">Отправить заявку</button>
+              <button type="submit" class="btn btn--primary" id="leadSubmit">Send brief</button>
               <span class="form-status" id="formStatus" role="status"></span>
             </div>
           </form>
+
           <div class="contacts__side">
-            <div class="contacts__line"><span>Почта</span><a href="mailto:hello@artfoma.ru">hello@artfoma.ru</a></div>
-            <div class="contacts__line"><span>Telegram</span><a href="https://t.me/" target="_blank" rel="noopener">@artfoma</a></div>
-            <div class="contacts__line"><span>Город</span><span>Калининград, работаем удалённо</span></div>
+            <div class="contacts__line"><span>Email</span><a href="mailto:hello@artfoma.ru">hello@artfoma.ru</a></div>
+            <div class="contacts__line"><span>Telegram</span><a href="https://t.me/ART_fom3nko" target="_blank" rel="noopener">@ART_fom3nko</a></div>
+            <div class="contacts__line"><span>Location</span><span>Remote · Kaliningrad</span></div>
             <div class="contacts__socials">
               <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
               <a href="https://behance.net/" target="_blank" rel="noopener">Behance</a>
@@ -324,25 +332,10 @@
       <footer class="site-footer">
         <div class="footer-inner">
           <div class="footer-left">
-            <img src="./icons/logo.png" alt="ART.Foma" width="28" height="28"
-                 onerror="this.style.display='none'">
-            <span>© 2026 ART.Foma. Дизайн-студия.</span>
+            <img src="./icons/logo.png" alt="ART Foma" width="28" height="28">
+            <span>© 2026 ART Foma</span>
           </div>
-          <p class="footer-legal">Все цены на сайте — ориентировочные и не являются публичной офертой. Точная стоимость определяется после брифа и фиксируется в договоре.</p>
-        </div>
-
-        <div class="sandbox" id="sandbox" role="group" aria-label="Чем мы занимаемся">
-          <div class="sandbox__fallback" id="sandboxFallback" hidden></div>
-          <div class="sandbox__hint handwritten" id="sandboxHint">тяни стикеры</div>
-          <div class="sandbox__scroll-rail" aria-hidden="true"></div>
-          <button class="btn btn--primary" id="sandboxGravity" aria-pressed="false"
-                  style="position:absolute;right:calc(16px + var(--safe-r));top:16px;z-index:20;display:none;min-height:44px;background:var(--butter);color:var(--ink)">
-            Наклоняй телефон
-          </button>
-          <button class="btn btn--primary" id="sandboxShake" type="button"
-                  style="position:absolute;right:calc(16px + var(--safe-r));top:16px;z-index:20;display:none;min-height:44px">
-            Встряхнуть
-          </button>
+          <p class="footer-legal">Independent creative studio working across branding, digital design and visual direction.</p>
         </div>
       </footer>
     </div>
