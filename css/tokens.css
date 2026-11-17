@@ -1,0 +1,26 @@
+:root {
+    --bg: #F2F1EC;
+    --ink: #1F4D3E;
+    --acc: #3B5BDB;
+    --mint: #BDEBD8;
+    --pink: #F2B8D6;
+    --lime: #D9F26B;
+    --hl: #F8D7E8;
+    --mute: rgba(31, 77, 62, .74);
+    --line: rgba(31, 77, 62, .2);
+    --ink-dark: #121212;
+    --food: #FFD84D;
+    
+    --sans: 'Inter Tight', system-ui, sans-serif;
+    --txt: 'Golos Text', system-ui, sans-serif;
+    --serif: 'Literata', Georgia, serif;
+    --cond: 'Oswald', Impact, sans-serif;
+    
+    --pad: clamp(20px, 5vw, 72px);
+    --max: 1400px;
+    
+    /* Переменные для карточек (перебиваются в inline-style) */
+    --pbg: var(--acc);
+    --pfg: #F2F1EC;
+    --pacc: var(--mint);
+  }

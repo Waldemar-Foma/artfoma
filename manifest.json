@@ -1,0 +1,23 @@
+{
+    "name": "ART Foma — независимая дизайн-студия",
+    "short_name": "ART Foma",
+    "description": "Брендинг, графический дизайн и цифровые интерфейсы с самостоятельным характером.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F4F3EE",
+    "theme_color": "#F4F3EE",
+    "icons": [
+      {
+        "src": "/icons/logo/web-app-manifest-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/icons/logo/web-app-manifest-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
